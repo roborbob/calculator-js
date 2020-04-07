@@ -3,6 +3,6 @@ A calculator in vanilla js
 
 Instructions
 
-Run "npm start" from the terminal, when you are sitting the project directory folder.
+From the project directory folder type "npm start" in the terminal.
 
 This will open the code in https://localhost:3000, in your browser.
