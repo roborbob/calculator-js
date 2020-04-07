@@ -1,0 +1,66 @@
+$screen: #29363b;
+$save: rgb(236, 70, 92);
+$saveBorder: rgb(92, 10, 21);
+$numbers: rgb(246, 130, 121);
+$numbersBorder: rgb(207, 111, 104);
+$operators: rgb(247, 188, 135);
+$operatorBorder: rgb(182, 135, 80);
+
+@mixin button($class, $background, $border) {
+    .#{$class} {
+        width: 80px;
+        height: 80px;
+        border: none;
+        border-top: 1px solid rgba(0,0,0,0.3);
+        outline: none;
+        font-family: "Helvetica neue";
+        font-weight: 100;
+        color: white;
+        font-size: 30px;
+        transition: 0.2s;
+        background: $background;
+        &:hover {
+            background: darken($background, 3%);
+            box-shadow: inset 1px 1px 5px $border;
+        }
+        &:active {
+            background: darken($background, 6%);
+            box-shadow: inset 5px 5px 10px $border;
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 320px;
+    .screen {
+        display: flex;
+        background: $screen;
+        flex-direction: column;
+        justify-content: center;
+        height: 200px;
+        padding: 20px;
+        font-size: 30px;
+        color: white;
+        text-align: right;
+        font-weight: 200;
+        font-family: "Helvetica neue";
+        p {
+            margin: 0;
+        }
+    }
+    .keypad {
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       @include button("clear-save", $background: $save, $border: $saveBorder);
+       @include button("operator", $background: $operators, $border: $operatorBorder);
+       @include button("number", $background: $numbers, $border: $numbersBorder);
+    }
+}
